@@ -9,7 +9,6 @@
         </style>
     </head>
     <body>
-        <!-- <div class="reuben">hello world, Reuben</div>  -->
         <h1>Reuben's notes</h1>
         <div>
             <textarea id='notes'></textarea>
@@ -22,7 +21,7 @@
         document.getElementById('save').addEventListener('click', (input) => {
             const textArea = document.getElementById('notes');
             const div = document.createElement('div');
-            const note = textArea.value;
+            const note = teaaaxtArea.value;
             div.innerHTML = note;
             // clears the old value
             textArea.value = '';
