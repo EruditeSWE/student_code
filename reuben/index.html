@@ -12,6 +12,7 @@
         <h1>Reuben's notes</h1>
         <div>
             <textarea id='notes'></textarea>
+            <!-- <div id='notes'>this is lame</div> -->
         </div>
         <button id='save'>Save notes</button>
         <h1>Saved notes</h1>
@@ -19,6 +20,7 @@
     </body>
     <script>
         document.getElementById('save').addEventListener('click', (input) => {
+            console.log('this works');
             const textArea = document.getElementById('notes');
             const div = document.createElement('div');
             const note = textArea.value;
