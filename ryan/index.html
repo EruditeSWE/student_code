@@ -9,18 +9,41 @@
         </style>
         <title> Ryan's Notes</title>
     </head>
-    <body style="background-color: powderblue;">
-        <h1 style="border: 7px solid blue;font-family: sans-serif;">Ryan's Notes</h1>
+    <body style='background-color: powderblue;'>
+        <h1 style='border: 7px solid blue; font-family: sans-serif;'>Ryan's Notes</h1>
         <div>
-            <textarea id="notes"></textarea>
+            <textarea id='notes'></textarea>
         </div>
-        <button id="save">save notes</button>
-        <h1 style="border: 7px dashed blue">saved notes</h1>
-        <div id="saved-notes"></div>
+        <button id='clear'>clear notes</button>
+        <button id='save'>save notes</button>
+        <h1>saved notes</h1>
+        <button id='clear-saved'>clear saved notes</button>
+        <button id='black'>black text</button>
+        <button id='red'>red text</button>
+        <button id='green'>green text</button>
+        <div id='saved-notes'></div>
     </body>
     <script>
-        document.getElementById("save").addEventListener("click", (input) => {
-            const textArea = document.getElementById("notes"); const div = document.createElement("div");const note = textArea.value;div.innerHTML = note; // clears the old value textArea.value = "";document.getElementById("saved-notes").appendChild(div)
+        document.getElementById('save').addEventListener('click', (input) => {
+            const textArea = document.getElementById('notes');
+            const div = document.createElement('div');
+            const note = textArea.value;
+            div.innerHTML = note;
+            textArea.value = '';
+            document.getElementById('saved-notes').appendChild(div)
         })
+       
+        document.getElementById('clear').addEventListener('dblclick', (input) => {
+            const textArea = document.getElementById('notes')
+            textArea.value = '';
+        })
+        
+        document.getElementById('clear-saved').addEventListener('dblclick', (input) => {
+            const div = document.getElementById('saved-notes');
+            div.innerHTML = '';
+            div.value = '';
+        })
+        
+        document.getElementById('black').addEventListener('click',() => content.style.color = blue);
     </script>
 </html>
