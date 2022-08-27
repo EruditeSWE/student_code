@@ -28,9 +28,15 @@
             const textArea = document.getElementById('notes');
             const div = document.createElement('div');
             const note = textArea.value;
-            div.innerHTML = note;
-            textArea.value = '';
-            document.getElementById('saved-notes').appendChild(div)
+            // const r = /\s/;
+            const sentence = note.split(/\s/);
+            for (const word of sentence) {
+                if (word == 'blue' || word == 'red' || word == 'green') {
+                    div.innerHTML = note;
+                    textArea.value = '';
+                    document.getElementById('saved-notes').appendChild(div)
+                }
+            }
         })
        
         document.getElementById('clear').addEventListener('dblclick', (input) => {
@@ -44,6 +50,36 @@
             div.value = '';
         })
         
-        document.getElementById('black').addEventListener('click',() => content.style.color = blue);
+        document.getElementById('black').addEventListener('click', (input) => {
+            const childNode = document.getElementById('saved-notes')
+            childNode.style.color = 'black'
+        })
+
+        document.getElementById('red').addEventListener('click', (input) => {
+            const childNode = document.getElementById('saved-notes')
+            childNode.style.color = 'red'
+        })
+        
+        document.getElementById('green').addEventListener('click', (input) => {
+            const childNode = document.getElementById('saved-notes')
+            childNode.style.color = 'green'
+        })
+
+        document.getElementById('saved-notes').addEventListener('mouseover', (input) => {
+            const childNode = input.target;
+            const note = childNode.innerHTML
+            // const r = /\s/;
+            const sentence = note.split(/\s/);
+            for (const word of sentence) {
+                if (word == 'red' || word == 'blue' || word == 'green') {
+                    childNode.style.color = word
+                }
+            }
+        })
+
+        document.getElementById('saved-notes').addEventListener('mouseout', (input) => {
+            const childNode = input.target;
+            childNode.style.color = 'black'
+        })
     </script>
 </html>
